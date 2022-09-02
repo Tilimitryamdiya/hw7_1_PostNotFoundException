@@ -41,9 +41,9 @@ fun main() {
 
     WallService.update(newPost2)
 
-//    WallService.print()
+    WallService.print()
 
     println(WallService.createComment(1, Comment(23)))
-    println(WallService.createComment(4, Comment(56)))
+//    println(WallService.createComment(4, Comment(56)))
 
 }

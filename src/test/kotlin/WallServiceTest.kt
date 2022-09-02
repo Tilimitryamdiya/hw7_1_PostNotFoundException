@@ -3,6 +3,29 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 class WallServiceTest {
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        val postId = 10
+        val comment = Comment()
+        WallService.createComment(postId, comment)
+    }
+    @Test
+    fun createComment() {
+        val testPost = Post(
+            text = "test",
+            date = 101010,
+            copyright = null,
+            postSource = null,
+            geo = null,
+            donut = null
+        )
+        WallService.add(testPost)
+        val postId = 1
+        val comment = Comment()
+
+        val result = WallService.createComment(postId, comment)
+        assertEquals(comment, result)
+    }
 
     @Test
     fun add() {
